@@ -9,6 +9,10 @@ import Dropdown from "antd/es/dropdown";
 import _ from "lodash";
 
 import { messageObj } from "./datum";
+import paginate from "./utils";
+
+// components
+import RowItem from "./RowItem";
 
 // styles
 import "./App.scss";
@@ -120,10 +124,14 @@ const App = () => {
     },
     { delivered: 0, failed: 0, pending: 0, total: 0 }
   );
-  console.log("the all sums", mySums);
-  console.log("The Array", objArr);
 
   const columns = [
+    {
+      title: "#",
+      render: (item: any, record: any, index: any) => {
+        return dataSource.indexOf(record) + 1;
+      },
+    },
     {
       title: "Name",
       dataIndex: "name",
@@ -218,6 +226,8 @@ const App = () => {
     );
   };
 
+  // console.log(paginate(13));
+
   return (
     <div className="main-app">
       <Card>
@@ -231,6 +241,8 @@ const App = () => {
           onChange={handleTableChange}
         />
       </Card>
+
+      <RowItem />
     </div>
   );
 };
