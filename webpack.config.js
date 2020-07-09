@@ -6,7 +6,7 @@ const WebpackMd5Hash = require("webpack-md5-hash");
 // main configuration
 module.exports = {
   mode: process.env.NODE_ENV === "development" ? "development" : "production",
-  entry: { app: "./src/Index.tsx" },
+  entry: { app: "./src/index.tsx" },
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
@@ -20,9 +20,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Writ App",
+      title: "Form Table",
       template: "./src/index.html",
-      favicon: "assets/images/favicon.ico",
       filename: "index.html",
       hash: true,
       minify: true,
@@ -33,10 +32,9 @@ module.exports = {
     rules: [
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         loader: ["style-loader", "css-loader", "sass-loader"],
       },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
     ],
   },
 };
