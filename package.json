@@ -5,6 +5,10 @@
   "repository": "git@github.com:KaiserPhemi/react-ts-template.git",
   "author": "KaiserPhemi <kaiser.phemi@protonmail.ch>",
   "license": "MIT",
+  "scripts": {
+    "start": "",
+    "dev": "nodemon"
+  },
   "dependencies": {
     "typescript": "^3.9.5"
   }
